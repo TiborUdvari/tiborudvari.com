@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 const items = [
   { id: 1, name: "23.05.23 Influencer concept" },
@@ -6,14 +7,16 @@ const items = [
   { id: 3, name: "23.05.19 Chat GPT Storyteller" },
   { id: 4, name: "23.05.19 Mapping Festival" },
   { id: 5, name: "23.05.19 VR project" },
-
-  // More items...
 ]
 
-export default function Home() {
+export default async function Home() {
+
+  const res = await fetch('https://api.github.com/repos/vercel/next.js');
+  const data = await res.json();
+
   return (
     <main>
-
+        <h1>{data.name}</h1>
         <h1 className="text-3xl px-5 pt-12">Tibor Udvari</h1>
         <h2 className="px-5 pb-3">He is undecided about this bio line for now. </h2>
         <div className="sm:px-5 columns-1 sm:columns-2 lg:columns-3">
@@ -30,6 +33,7 @@ export default function Home() {
 
         </div>
         
+        <Link href="/documents/123">Document</Link>
 
     </main>
   );
