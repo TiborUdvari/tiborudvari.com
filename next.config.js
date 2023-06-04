@@ -4,6 +4,16 @@ const { withContentlayer } = require("next-contentlayer");
 // const nextConfig = {}
 
 const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+  },
   async rewrites() {
     return [
       {
